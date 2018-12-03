@@ -1,0 +1,75 @@
+package kelompok2;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+
+class kelompok2 {
+	int bil;
+	int bil1;
+	int bil2;
+	int hasil;
+	
+	public int menentukanbilfaktorial(){
+		return bil2*bil1;
+	}
+}
+
+public class faktorial {
+	private static BufferedReader br = null;
+	
+	public static void main(String[] args) {
+		System.out.println("	###############################");
+		System.out.println("	# Algoritma Dan Struktur Data #");
+		System.out.println("	#      Program Faktorial      #");
+		System.out.println("	###############################");
+		System.out.println("");
+		
+		boolean cek = true;
+		while (cek) {
+			br = new BufferedReader(new InputStreamReader(System.in));
+			try {
+				System.out.print("	Masukkan Bilangan Asli : ");
+				int bil, bil1, bil2;
+				bil = Integer.parseInt(br.readLine());
+				bil1 = bil;
+				bil2 = 1;
+				while(bil1 > 1){
+					bil2 = bil2 * bil1;				
+				
+				System.out.print(bil1+ " * ");
+				bil1--;
+				}
+				
+				System.out.println("1");
+				String output = "Nilai Faktorial Dari " + bil + "! Adalah " ;
+				if (bil==0)
+					System.out.println(output + "1");
+				else if (bil>0) {
+					int hasil = 1;
+					for (int i=bil; i>0; i--) {
+						hasil *= i;
+					}
+					System.out.println(output + hasil);
+				}
+				
+				System.out.print("Ingin Coba Lagi (Y/N) ?");
+				
+				String coba = br.readLine();
+				if (coba.equalsIgnoreCase("N"))
+					cek = false;
+				else if (coba.equalsIgnoreCase("Y"))
+					cek = true;
+				else
+					System.exit(0);
+			}
+			
+			catch (Throwable t) {
+				System.err.println("");
+				System.err.println("Nilai Yang Anda Masukkan Bukan Bilangan Asli!");
+				System.err.println("Silahkan Ketikkan Bilangan Asli");
+				System.err.println("=");
+			}
+		}
+	}
+}
